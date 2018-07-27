@@ -5,22 +5,50 @@ var insertShoppingList = document.getElementById('shoppingList');
 
 function appendAll(arr){
     for (i =0; i < arr.length;i++){
-        var productAdd = document.createElement('div')
-        productAdd.class = 'product';
+
+        var productAdd = document.createElement('h2')
+        productAdd.className = 'product';
         productAdd.innerHTML = arr[i].product  
         insertShoppingList.appendChild(productAdd);
 
         var descripAdd = document.createElement('div');
-        descripAdd.class = 'description';
+        descripAdd.className = 'description';
         descripAdd.innerHTML = arr[i].description;
-        insertShoppingList.appendChild(descripAdd);
+        productAdd.appendChild(descripAdd);
 
         var priceAdd = document.createElement('div');
-        priceAdd.class = 'price';
+        priceAdd.className = 'price';
         priceAdd.innerHTML = '$'+ arr[i].price;
         insertShoppingList.appendChild(priceAdd);
-
     }
 }
 
+
 var appendAllItems = appendAll(shoppingList)
+
+var addProdEvent = document.getElementsByClassName('product');
+
+
+for (i = 0 ;i < addProdEvent.length ; i++){
+    addProdEvent[i].addEventListener('click', hideShow);
+}
+
+
+function hideShow(){
+
+    var descripShow = this.querySelectorAll('.description')[0];
+    if (descripShow.style.display === 'none'){
+        descripShow.style.display = 'block';
+    }else {
+        descripShow.style.display = 'none';
+    }
+    
+    
+}
+
+
+
+
+
+
+
