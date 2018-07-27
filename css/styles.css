@@ -1,6 +1,18 @@
 body{
     background-color: whitesmoke;
 }
+h1{
+    background-color: rgba(255, 166, 0, 0.774);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color:#A76A04;
+
+}
+.logo{
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .description{
     display: block;
