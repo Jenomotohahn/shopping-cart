@@ -42,13 +42,16 @@ function hideShow(){
     }else {
         descripShow.style.display = 'none';
     }
-    
-    
 }
 
+var subTotalAmt = 0
 
+for (i = 0; i < shoppingList.length; i++){
+   subTotalAmt+= shoppingList[i].price;
+} 
 
-
+var subTotalAppend = document.getElementById('subtotal');
+subTotalAppend.innerHTML = '$' + subTotalAmt;
 
 
 
