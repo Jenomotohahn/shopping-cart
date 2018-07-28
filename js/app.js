@@ -4,16 +4,21 @@ var shoppingList = [{product: "Finger Toothbrush", description: "A helping hand 
 var insertShoppingList = document.getElementById('shoppingList');
 
 function appendAll(arr){
-    for (i =0; i < arr.length;i++){
+    for (var i =0; i < arr.length;i++){
         
+        var productBox = document.createElement('div');
+        productBox.className = 'box';
+        insertShoppingList.appendChild(productBox);
+
         var imgAddPhoto = document.createElement('img');
+        imgAddPhoto.className = 'productImg';
         imgAddPhoto.src = arr[i].imgSrc;
-        insertShoppingList.appendChild(imgAddPhoto);
+        productBox.appendChild(imgAddPhoto);
 
         var productAdd = document.createElement('h2')
         productAdd.className = 'product';
         productAdd.innerHTML = arr[i].product  
-        insertShoppingList.appendChild(productAdd);
+        productBox.appendChild(productAdd);
 
         var descripAdd = document.createElement('div');
         descripAdd.className = 'description';
@@ -23,9 +28,20 @@ function appendAll(arr){
         var priceAdd = document.createElement('div');
         priceAdd.className = 'price';
         priceAdd.innerHTML = '$'+ arr[i].price;
-        insertShoppingList.appendChild(priceAdd);
+        productBox.appendChild(priceAdd);
     }
 }
+
+
+
+
+
+/* create a helper function to replace all the typing work
+
+example: function makeBox (elem, label, data){
+
+}
+*/
 
 
 var appendAllItems = appendAll(shoppingList)
@@ -33,7 +49,7 @@ var appendAllItems = appendAll(shoppingList)
 var addProdEvent = document.getElementsByClassName('product');
 
 
-for (i = 0 ;i < addProdEvent.length ; i++){
+for (var i = 0 ;i < addProdEvent.length ; i++){
     addProdEvent[i].addEventListener('click', hideShow);
 }
 
@@ -50,7 +66,7 @@ function hideShow(){
 
 var subTotalAmt = 0
 
-for (i = 0; i < shoppingList.length; i++){
+for (var i = 0; i < shoppingList.length; i++){
    subTotalAmt+= shoppingList[i].price;
 } 
 
